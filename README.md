@@ -1,5 +1,2 @@
-# MyProject
-Repo for my MSc thesis project and other school related projects
+# DELGEME Second Summer School, October 22 - November 17, 2018, Bamako Mali
 
-# License
-![](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png)
