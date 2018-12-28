@@ -19,3 +19,26 @@ _book
 *.docx
 *.gz
 
+*.bed
+*.bim
+*.fam
+*.hh
+*.frq
+*.imiss
+*.log
+*.lmiss
+*.missing
+*.sample
+*.gen
+*.gz
+*.model
+*.logistic
+*.in
+*.nosex
+*.sexcheck
+*.het
+*.Rout
+*.qc
+*.genome
+*.png
+
