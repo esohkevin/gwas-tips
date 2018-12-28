@@ -42,4 +42,12 @@ _book
 *.results
 *.out
 fail*
+.RData
+.Rhistory
+*.R
 
+# Exceptions
+!ibdana.R
+!snpmissing.R
+!assocplot.R
+!indmissing.R
