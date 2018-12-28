@@ -1,0 +1,85 @@
+After making plink binary files from oxford .sample + .gen files
+- 2368677 variants and 1471 people
+- 693 cases + 778 controls
+- 875 males + 596 females
+- Total genotyping rate 0.953835
+
+After checking for sex concordance
+- 2368677 variants and 1471 people
+- 693 cases + 778 controls
+- 875 males + 596 females
+- Total genotyping rate 0.953835
+- 1256941 het. haploid genotypes present (May be caused by discordant sex information, incorrect chromosome set, or may be because the variants are close to X chromosome PAR hence are called )
+- 105 Probelms
+
+After checking for sex concordance, after having splitted chrX by the PARs during --make-bed step
+- 2368677 variants and 1471 people
+- 693 cases + 778 controls
+- 875 males + 596 females
+- Total genotyping rate 0.953835
+- 1031981 het. haploid genotypes present (May be caused by sex discordance and incorrect chromosome set since the PARs are split into a new chromosome code, XY or 25)
+- 102 Problems
+
+Action: Save FIDs + IDs of all with problem in separate file, tab delimited (fail-checksex-qc.txt)
+
+After checking heterozygosity rate
+- 136 individuals failed
+
+After checking per individual missing rate
+- 136 individuals failed
+
+After merging individuals who failed both, sorting and taking uniq
+- 157 individuals failed both
+
+<<<	Perform per-individual missing rate and heterozygosity rate QC in R after merging chrXY back to X	>>>
+
+After extracting a subset of frequent SNPs for IBD estimation (excluding the sex chromosomes)
+- 2311820 variants and 1471 people
+- 693 cases + 778 controls
+- 875 males + 596 females
+- Total genotyping rate 0.953835
+- 280167 variants removed due to missing genotype rate (> 5%)
+- 838 variants removed due to Hardy-Weinberg exact test (1e-8)
+- 1773027 variants removed due to minor allele threshold (MAF <0.35)
+- 257788 variants left
+
+After pruning to remove SNPs with r^2 > 0.2 within 50bp using a window size of 5
+- 257788 variants loaded
+- Total genotyping rate 0.966741
+- 169577 variants removed (pruned out)
+
+After computing IBD report with set of pruned in variants
+- Total genotyping rate 0.966098
+- 88211 variants used
+- 12 failed due to IBD after analysis in R
+
+After checksex, heterozygosity, missing rates, and IBD (relatedness) QC
+- 166 individuals failed (after sort uniq)
+- 1305 people remaining
+- 607 cases + 698 controls
+- 2368677 variants
+- Total genotyping rate 0.975044
+
+# Per Marker QC
+Before per maker QC
+- 2368677 variants 
+- 1305 people
+- 772 males + 533 females
+- 690709 het. haploid genotypes
+- Total genotyping rate 0.975044
+
+After per marker QC
+- 2368677 variants 
+- 1305 people
+- 772 males + 533 females
+- 639824 het. haploid genotypes
+- Total genotyping rate 0.984471
+- 93595 variants removed due to missing genotype data
+- 1922 variants removed due to hwe exact test
+- 453756 variants removed due to MAF threshold
+- 1718297 variants left
+
+While performing association tests on autosomes only
+- Total genotyping rate 0.995259
+- 1676062 variants
+

@@ -18,7 +18,6 @@ _book
 *.pptx
 *.docx
 *.gz
-
 *.bed
 *.bim
 *.fam
@@ -30,7 +29,6 @@ _book
 *.missing
 *.sample
 *.gen
-*.gz
 *.model
 *.logistic
 *.in
@@ -41,4 +39,4 @@ _book
 *.qc
 *.genome
 *.png
-
+*.results
