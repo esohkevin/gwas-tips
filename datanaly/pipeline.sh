@@ -9,8 +9,6 @@
 mkdir -p images
 #read -p 'Please provide your genotype vcf file: ' vcf
 
-#for i in $vcf
-#do
 plink1.9 \
 --vcf camgwas_merged.vcf.gz \
 --recode oxford \
@@ -77,10 +75,14 @@ echo -e "\nNow generating plots for per individual missingness in R. Please wait
 R CMD BATCH indmissing.R
 
 # Extract a subset of frequent individuals to produce an IBD report to check duplicate or related individuals based on autosomes
+
+s=`seq 0.1 0.05 0.35`
+for i in $s
+do
 plink1.9 \
 --bfile raw-camgwas \
 --autosome \
---maf 0.35 \
+--maf $s \
 --geno 0.05 \
 --hwe 1e-8 \
 --allow-no-sex \
@@ -173,6 +175,17 @@ plink1.9 --bfile ind-qc-camgwas \
 --out qc-camgwas
 cat qc-camgwas.log >> all.log
 
+# Run Association test with adjustment to assess the genomic control inflation factor (lambda)
+plink1.9 \
+--bfile qc-camgwas \
+--autosome \
+--allow-no-sex \
+--assoc \
+--adjust \
+--out qc-camgwas
+cat qc-camgwas.log >> all.log
+
+done
 # Run Association test on QCed data (logistic beta)
 plink1.9 \
 --bfile qc-camgwas \
@@ -181,16 +194,6 @@ plink1.9 \
 --logistic beta \
 --set-hh-missing \
 --ci 0.95 \
---out qc-camgwas
-cat qc-camgwas.log >> all.log
-
-# Run Association test with adjustment to assess the genomic control inflation factor (lambda)
-plink1.9 \
---bfile qc-camgwas \
---autosome \
---allow-no-sex \
---assoc \
---adjust \
 --out qc-camgwas
 cat qc-camgwas.log >> all.log
 
