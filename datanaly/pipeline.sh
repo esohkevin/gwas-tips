@@ -12,7 +12,7 @@ mkdir -p images
 #for i in $vcf
 #do
 plink1.9 \
---vcf $vcf \
+--vcf camgwas_merged.vcf.gz \
 --recode oxford \
 --allow-no-sex \
 --double-id \
