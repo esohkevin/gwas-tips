@@ -75,16 +75,10 @@ echo -e "\nNow generating plots for per individual missingness in R. Please wait
 R CMD BATCH indmissing.R
 
 # Extract a subset of frequent individuals to produce an IBD report to check duplicate or related individuals based on autosomes
-
-echo """ ########### START TEST MAFs Sequence ########### """ >> all.log
-
-s=`seq 0.1 0.05 0.35`
-for i in $s
-do
 plink1.9 \
 --bfile raw-camgwas \
 --autosome \
---maf $i \
+--maf 0.35 \
 --geno 0.05 \
 --hwe 1e-8 \
 --allow-no-sex \
@@ -186,10 +180,6 @@ plink1.9 \
 --adjust \
 --out qc-camgwas
 cat qc-camgwas.log >> all.log
-
-done
-
-echo """ ########### END TEST MAFs Sequence ########### """ >> all.log
 
 # Run Association test on QCed data (logistic beta)
 plink1.9 \
