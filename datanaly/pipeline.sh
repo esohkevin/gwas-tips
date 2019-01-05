@@ -1,6 +1,6 @@
 ###### CAMEROON GWAS DATA ANALYSIS PIPELINE ######
 # Data: 
-#	Genotype:	camgwas_merged.vcf.gz
+#	Genotype:	camgwas_merge.vcf.gz
 #			raw-camgwas.gen 
 #
 #			from: 
@@ -10,7 +10,7 @@ mkdir -p images
 #read -p 'Please provide your genotype vcf file: ' vcf
 
 plink1.9 \
---vcf camgwas_merged.vcf.gz \
+--vcf camgwas_merge.vcf.gz \
 --recode oxford \
 --allow-no-sex \
 --double-id \
@@ -76,13 +76,15 @@ R CMD BATCH indmissing.R
 
 # Extract a subset of frequent individuals to produce an IBD report to check duplicate or related individuals based on autosomes
 
+echo """ ########### START TEST MAFs Sequence ########### """ >> all.log
+
 s=`seq 0.1 0.05 0.35`
 for i in $s
 do
 plink1.9 \
 --bfile raw-camgwas \
 --autosome \
---maf $s \
+--maf $i \
 --geno 0.05 \
 --hwe 1e-8 \
 --allow-no-sex \
@@ -186,6 +188,9 @@ plink1.9 \
 cat qc-camgwas.log >> all.log
 
 done
+
+echo """ ########### END TEST MAFs Sequence ########### """ >> all.log
+
 # Run Association test on QCed data (logistic beta)
 plink1.9 \
 --bfile qc-camgwas \
