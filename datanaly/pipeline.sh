@@ -192,10 +192,39 @@ plink1.9 \
 --out qc-camgwas
 cat qc-camgwas.log >> all.log
 
+# Run Association tests fitting different X-chromosome models
+# Add sex as a covariate on X chr
+s=`seq 1 1 3`
+for i in $s
+do
+plink1.9 \
+--bfile qc-camgwas \
+--xchr-model $i \
+--allow-no-sex \
+--logistic beta \
+--ci 0.95 \
+--set-hh-missing \
+--out xchr$i
+cat xchr$i.log >> all.log
+done
+
+for i in $s
+do
+plink1.9 \
+--bfile qc-camgwas \
+--xchr-model $i \
+--allow-no-sex \
+--assoc \
+--adjust \
+--set-hh-missing \
+--out adxchr$i
+cat adxchr$i.log >> all.log
+done
+
 #########################################################################
 #                        Plot Association in R                          #
 #########################################################################
-echo -e "\nNow generating association plots in R. Please wait..."
+echo -e "\nNow generating association and Q-Q plots in R. Please wait..."
 
 R CMD BATCH assocplot.R
 
