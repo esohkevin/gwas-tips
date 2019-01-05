@@ -5,12 +5,12 @@
 #
 #			from: 
 
-runplink1.9() {
+#runplink1.9() {
 mkdir -p images
-read -p 'Please provide your genotype vcf file: ' vcf
+#read -p 'Please provide your genotype vcf file: ' vcf
 
-for i in $vcf
-do
+#for i in $vcf
+#do
 plink1.9 \
 --vcf $vcf \
 --recode oxford \
@@ -184,6 +184,16 @@ plink1.9 \
 --out qc-camgwas
 cat qc-camgwas.log >> all.log
 
+# Run Association test with adjustment to assess the genomic control inflation factor (lambda)
+plink1.9 \
+--bfile qc-camgwas \
+--autosome \
+--allow-no-sex \
+--assoc \
+--adjust \
+--out qc-camgwas
+cat qc-camgwas.log >> all.log
+
 #########################################################################
 #                        Plot Association in R                          #
 #########################################################################
@@ -191,7 +201,7 @@ echo -e "\nNow generating association plots in R. Please wait..."
 
 R CMD BATCH assocplot.R
 
-done
+#done
 
 mv *.png images/
-}
+#}
