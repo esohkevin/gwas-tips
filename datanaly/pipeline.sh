@@ -82,7 +82,7 @@ plink1.9 \
 --autosome \
 --maf 0.35 \
 --geno 0.05 \
---hwe 1e-8 \ 
+--hwe 1e-8 \
 --allow-no-sex \
 --make-bed \
 --out frequent
@@ -176,6 +176,7 @@ cat qc-camgwas.log >> all.log
 # Run Association test on QCed data (logistic beta)
 plink1.9 \
 --bfile qc-camgwas \
+--autosome \
 --allow-no-sex \
 --logistic beta \
 --set-hh-missing \
