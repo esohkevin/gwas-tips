@@ -168,6 +168,7 @@ plink1.9 --bfile ind-qc-camgwas \
 --geno 0.04 \
 --make-bed \
 --set-hh-missing \
+--merge-x
 --out qc-camgwas
 cat qc-camgwas.log >> all.log
 
@@ -208,23 +209,20 @@ plink1.9 \
 cat xchr$i.log >> all.log
 done
 
-for i in $s
-do
 plink1.9 \
 --bfile qc-camgwas \
---xchr-model $i \
+--autosome-xy \
 --allow-no-sex \
 --assoc \
 --adjust \
 --set-hh-missing \
---out adxchr$i
-cat adxchr$i.log >> all.log
-done
+--out autopseudo
+cat autopseudo.log >> all.log
 
 #########################################################################
 #                        Plot Association in R                          #
 #########################################################################
-echo -e "\nNow generating association and Q-Q plots in R. Please wait..."
+echo -e "\nNow generating association plots in R. Please wait..."
 
 R CMD BATCH assocplot.R
 
