@@ -5,12 +5,18 @@
 #
 #			from: 
 
+runplink1.9() {
+mkdir -p images
+read -p 'Please provide your genotype vcf file: ' vcf
+
+for i in $vcf
+do
 plink1.9 \
---vcf camgwas_merge.vcf.gz \
+--vcf $vcf \
 --recode oxford \
 --allow-no-sex \
 --double-id \
---id-delim '_'	\ 
+--id-delim '_' \
 --out raw-camgwas
 sleep 1
 
@@ -66,6 +72,7 @@ cat raw-camgwas.log >> all.log
 #########################################################################
 #	    Perform per individual missing rate QC in R			#
 #########################################################################
+echo -e "\nNow generating plots for per individual missingness in R. Please wait..."
 
 R CMD BATCH indmissing.R
 
@@ -99,8 +106,9 @@ plink1.9 \
 cat caseconpruned.log >> all.log
 
 #########################################################################
-#                    Perform IBD (relatedness) in R                     #
+#              Perform IBD analysis (relatedness) in R                  #
 #########################################################################
+echo -e "\nNow generating plots for IBD analysis in R. Please wait..."
 
 R CMD BATCH ibdana.R
 
@@ -149,6 +157,7 @@ cat ind-qc-camgwas.log >> all.log
 #########################################################################
 #                        Perform per SNP QC in R                        #
 #########################################################################
+echo -e "\nNow generating plots for per SNP QC in R. Please wait..."
 
 R CMD BATCH snpmissing.R
 
@@ -177,6 +186,11 @@ cat qc-camgwas.log >> all.log
 #########################################################################
 #                        Plot Association in R                          #
 #########################################################################
+echo -e "\nNow generating association plots in R. Please wait..."
 
 R CMD BATCH assocplot.R
 
+done
+
+mv *.png images/
+}
