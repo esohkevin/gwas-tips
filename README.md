@@ -13,7 +13,7 @@ and three malaria endemic regions of Cameroon (Center, Littoral and South West r
 improve understanding of the malaria disease process. Here, we utilize a genome-wide association 
 study (GWAS) approach whereby 2.3 millions of single nucleotide polymorphisms (SNPs) genotyped in 
 samples from the study participants will be tested for association with severe malaria. A quality 
-control procedure will be applied on the genotype data ser using the QCTOOL2, VCFTOOLS, and PLINK1.9 
+control procedure will be applied on the genotype dataset using the QCTOOL2, VCFTOOLS, and PLINK1.9 
 tools where poor quality samples and SNPs will be excluded.  Also, a population stratification analysis 
 by multidimensional scaling (MDS) and principal component analysis (PCA) will be performed to identify 
 and eliminate all potential confounders and association testing will be performed using PLINK1.9 and 
