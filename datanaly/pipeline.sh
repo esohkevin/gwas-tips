@@ -14,22 +14,25 @@ plink1.9 \
 --recode oxford \
 --allow-no-sex \
 --double-id \
---id-delim '_' \
 --out raw-camgwas
-sleep 1
-
-cat *.log > all.log
-sleep 1
-
+cat raw-camgwas.log > all.log
 cp tmp/raw-camgwas.sample .
-sleep 1
 
 #	Sample: 	raw-camgwas.sample
 
-# Make plink binary files from Oxford .gen + .sample files spliting chrX by the PARs using the b37 coordinates
+# Check for duplicate SNPs
+plink1.9 \
+--data raw-camgwas \
+--allow-no-sex \
+--list-duplicate-vars ids-only suppress-first \
+--out dups
+cat dups.dupvar.log >> all.log
+
+# Make plink binary files from Oxford .gen + .sample files spliting chrX by the PARs using the b37 coordinates while removing duplicate SNPs
 plink1.9 \
 --data raw-camgwas \
 --make-bed \
+--exclude dups.dupvar \
 --split-x b37 \
 --allow-no-sex \
 --out raw-camgwas
