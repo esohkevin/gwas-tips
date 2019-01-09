@@ -16,7 +16,7 @@ plink1.9 \
 --double-id \
 --out raw-camgwas
 cat raw-camgwas.log > all.log
-cp tmp/raw-camgwas.sample .
+cp samples/raw-camgwas.sample .
 
 #	Sample: 	raw-camgwas.sample
 
