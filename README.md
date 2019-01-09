@@ -31,28 +31,28 @@ intervention strategies.
 ## Pipeline
 
 ### Pre-QC Association analysis
- - Model: Logistic (beta) at 95% confidence interval, 1df Chi square allelic test, adjusted to assess the gonomic control inflation factor (λ).
+ - Model: Logistic (beta) at 95% confidence interval, 1df Chi square allelic test (adjusted to assess the genomic control inflation factor - λ).
  - Mode of inheritance (MOI): Additive, Allelic
- - Tools: PLINK1.9
+ - Tools: PLINK1.9, R
 
 ### Sample (per individual) QC
  - Identification of individuals with discordant sex information.
  - Identification of individuals with discordant sex information.
  - Identification of duplicate or related individuals or individuals of divergent ancestry
- - Tools: QCTOOL, PLINK1.9
+ - Tools: QCTOOL, PLINK1.9, R
 
 ### SNP (per marker) QC
  - Identification of SNPs with excessive missing genotype
  - Exclusion of rare SNPs (MAF < 1%)
  - Identification of SNPs demonstrating significant deviation from HWE
  - Identification of SNPs with significant differential genotyping call rate between cases and controls
- - Tools: PLINK1.9
+ - Tools: PLINK1.9, R
       
 ### Population Structure Determination
  - Multidimensional scaling (eliminate population outliers)
  - Principal component analysis with 10 axes of genetic variation (principal components)
  - Fst and Haplotype based fine structure analysis
- - Tools: fsStructure, ChromoPainter, GLOBETROTTER
+ - Tools: fsStructure, ChromoPainter, GLOBETROTTER, R
 
 ### Haplotype Estimation (phasing)
  - SHAPEIT2
@@ -63,7 +63,7 @@ intervention strategies.
 ### Post-Imputation Association analyses
  - Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
  - Modes of inheritance: dominant, recessive, heterozygous, additive, allelic
- - Tools: PLINK1.9, SNPTEST2
+ - Tools: PLINK1.9, SNPTEST2, R
 
 ### Follow-up Imputation of putative associations
  - Phasing with IMPUTE2 MCMC approach
@@ -72,7 +72,7 @@ intervention strategies.
 ### Association analysis
  - Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
  - Modes of inheritance (MOI): dominant, recessive, heterozygous, additive, allelic
- - Tools: PLINK1.9, SNPTEST2
+ - Tools: PLINK1.9, SNPTEST2, R
 
 # License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" 
