@@ -31,48 +31,48 @@ intervention strategies.
 ## Pipeline
 
 ### Pre-QC Association analysis
- • Model: Logistic (beta) at 95% confidence interval, 1df Chi square allelic test, adjusted to assess the gonomic control inflation factor (λ).
- • Mode of inheritance (MOI): Additive, Allelic
- • Tools: PLINK1.9
+ - Model: Logistic (beta) at 95% confidence interval, 1df Chi square allelic test, adjusted to assess the gonomic control inflation factor (λ).
+ - Mode of inheritance (MOI): Additive, Allelic
+ - Tools: PLINK1.9
 
 ### Sample (per individual) QC
- • Identification of individuals with discordant sex information.
- • Identification of individuals with discordant sex information.
- • Identification of duplicate or related individuals or individuals of divergent ancestry
- • Tools: QCTOOL, PLINK1.9
+ - Identification of individuals with discordant sex information.
+ - Identification of individuals with discordant sex information.
+ - Identification of duplicate or related individuals or individuals of divergent ancestry
+ - Tools: QCTOOL, PLINK1.9
 
 ### SNP (per marker) QC
- • Identification of SNPs with excessive missing genotype
- • Exclusion of rare SNPs (MAF < 1%)
- • Identification of SNPs demonstrating significant deviation from HWE
- • Identification of SNPs with significant differential genotyping call rate between cases and controls
- • Tools: PLINK1.9
+ - Identification of SNPs with excessive missing genotype
+ - Exclusion of rare SNPs (MAF < 1%)
+ - Identification of SNPs demonstrating significant deviation from HWE
+ - Identification of SNPs with significant differential genotyping call rate between cases and controls
+ - Tools: PLINK1.9
       
 ### Population Structure Determination
- • Multidimensional scaling (eliminate population outliers)
- • Principal component analysis with 10 axes of genetic variation (principal components)
- • Fst and Haplotype based fine structure analysis
- • Tools: fsStructure, ChromoPainter, GLOBETROTTER
+ - Multidimensional scaling (eliminate population outliers)
+ - Principal component analysis with 10 axes of genetic variation (principal components)
+ - Fst and Haplotype based fine structure analysis
+ - Tools: fsStructure, ChromoPainter, GLOBETROTTER
 
 ### Haplotype Estimation (phasing)
- • SHAPEIT2
+ - SHAPEIT2
 
 ### Genotype Imputation
- • IMPUTE2
+ - IMPUTE2
 
 ### Post-Imputation Association analyses
- • Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
- • Modes of inheritance: dominant, recessive, heterozygous, additive, allelic
- • Tools: PLINK1.9, SNPTEST2
+ - Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
+ - Modes of inheritance: dominant, recessive, heterozygous, additive, allelic
+ - Tools: PLINK1.9, SNPTEST2
 
 ### Follow-up Imputation of putative associations
- • Phasing with IMPUTE2 MCMC approach
- • Imputation with IMPUTE2
+ - Phasing with IMPUTE2 MCMC approach
+ - Imputation with IMPUTE2
 
 ### Association analysis
- • Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
- • Modes of inheritance (MOI): dominant, recessive, heterozygous, additive, allelic
- • Tools: PLINK1.9, SNPTEST2
+ - Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
+ - Modes of inheritance (MOI): dominant, recessive, heterozygous, additive, allelic
+ - Tools: PLINK1.9, SNPTEST2
 
 # License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" 
