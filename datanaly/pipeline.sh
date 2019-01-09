@@ -170,8 +170,7 @@ plink1.9 --bfile ind-qc-camgwas \
 --hwe 1e-6 \
 --geno 0.04 \
 --make-bed \
---set-hh-missing \
---merge-x
+--merge-x \
 --out qc-camgwas
 cat qc-camgwas.log >> all.log
 
