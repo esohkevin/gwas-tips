@@ -7,7 +7,7 @@ vulnerable. With increasing antimalarial and insecticide resistance, and no effe
 against all parasite strains, the disease threatens to escalate. An understanding of the mechanisms 
 of disease resistance and susceptibility in humans is crucial to developing new intervention strategies.
 
-Therefore, we seek to look for genetic variants that have not been discovered by previous 
+ Therefore, we seek to look for genetic variants that have not been discovered by previous 
 studies in 693 case and 778 control participants from three ethnic groups (Bantu, Semi-bantu and Foulbe) 
 and three malaria endemic regions of Cameroon (Center, Littoral and South West regions) that may 
 improve understanding of the malaria disease process. Here, we utilize a genome-wide association 
@@ -21,10 +21,56 @@ SNPTEST2 tools with Bonferroni correction for multiple testing. Furthermore, hap
 and imputation against the 1000 Genomes reference panel (Phase 3) will be performed using SHAPEIT and 
 IMPUTE2 respectively and then association of imputed SNPs will be performed with the aforementioned tools.
 
-At the end of the study, we expect to find at least a SNP that is significantly associated with 
+ At the end of the study, we expect to find at least a SNP that is significantly associated with 
 severe malaria in the study participants. This would be particularly important in gaining understanding 
 into host-parasite interaction which will in turn be crucial in informing development of novel 
 intervention strategies.
+
+## Pipeline
+
+### Pre-QC Association analysis
+    • Model: Logistic (beta) at 95% confidence interval, 1df Chi square allelic test, adjusted to assess the gonomic control inflation factor (λ).
+    • Mode of inheritance (MOI): Additive, Allelic
+    • Tools: PLINK1.9
+
+### Sample (per individual) QC
+    • Identification of individuals with discordant sex information.
+    • Identification of individuals with discordant sex information.
+    • Identification of duplicate or related individuals or individuals of divergent ancestry
+    • Tools: QCTOOL, PLINK1.9
+
+### SNP (per marker) QC
+    • Identification of SNPs with excessive missing genotype
+    • Exclusion of rare SNPs (MAF < 1%)
+    • Identification of SNPs demonstrating significant deviation from HWE
+    • Identification of SNPs with significant differential genotyping call rate between cases and controls
+    • Tools: PLINK1.9
+      
+### Population Structure Determination
+    • Multidimensional scaling (eliminate population outliers)
+    • Principal component analysis with 10 axes of genetic variation (principal components)
+    • Fst and Haplotype based fine structure analysis
+    • Tools: fsStructure, ChromoPainter, GLOBETROTTER
+
+### Haplotype Estimation (phasing)
+    • SHAPEIT2
+
+### Genotype Imputation
+    • IMPUTE2
+
+### Post-Imputation Association analyses
+    • Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
+    • Modes of inheritance: dominant, recessive, heterozygous, additive, allelic
+    • Tools: PLINK1.9, SNPTEST2
+
+### Follow-up Imputation of putative associations
+    • Phasing with IMPUTE2 MCMC approach
+    • Imputation with IMPUTE2
+
+### Association analysis
+    • Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
+    • Modes of inheritance (MOI): dominant, recessive, heterozygous, additive, allelic
+    • Tools: PLINK1.9, SNPTEST2
 
 # License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" 
