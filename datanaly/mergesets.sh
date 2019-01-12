@@ -22,49 +22,49 @@ plink \
 	--out merge1
 
 plink \
-	--file merge1 \
+	--file 1000G/merge1 \
 	--merge 1000G/ALL.chr3.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge2
 
 plink \
-	--file merge2 \
+	--file 1000G/merge2 \
 	--merge 1000G/ALL.chr4.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge3
 
 plink \
-	--file merge3 \
+	--file 1000G/merge3 \
 	--merge 1000G/ALL.chr5.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge4
 
 plink \
-	--file merge4 \
+	--file 1000G/merge4 \
 	--merge 1000G/ALL.chr6.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge5
 
 plink \
-	--file merge5 \
+	--file 1000G/merge5 \
 	--merge 1000G/ALL.chr7.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge6
 
 plink \
-	--file merge6 \
+	--file 1000G/merge6 \
 	--merge 1000G/ALL.chr8.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge7
 
 plink \
-	--file merge7 \
+	--file 1000G/merge7 \
 	--merge 1000G/ALL.chr9.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
@@ -78,70 +78,70 @@ plink \
 	--out merge9
 
 plink \
-	--file merge9 \
+	--file 1000G/merge9 \
 	--merge 1000G/ALL.chr11.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge10
 
 plink \
-	--file merge10 \
+	--file 1000G/merge10 \
 	--merge 1000G/ALL.chr12.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge11
 
 plink \
-	--file merge11 \
+	--file 1000G/merge11 \
 	--merge 1000G/ALL.chr13.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge12
 
 plink \
-	--file merge12 \
+	--file 1000G/merge12 \
 	--merge 1000G/ALL.chr14.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge13
 
 plink \
-	--file merge13 \
+	--file 1000G/merge13 \
 	--merge 1000G/ALL.chr15.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge14
 
 plink \
-	--file merge14 \
+	--file 1000G/merge14 \
 	--merge 1000G/ALL.chr16.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge15
 
 plink \
-	--file merge15 \
+	--file 1000G/merge15 \
 	--merge 1000G/ALL.chr17.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge16
 
 plink \
-	--file merge16 \
+	--file 1000G/merge16 \
 	--merge 1000G/ALL.chr18.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge17
 
 plink \
-	--file merge17 \
+	--file 1000G/merge17 \
 	--merge 1000G/ALL.chr19.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
 	--out merge18
 
 plink \
-	--file merge18 \
+	--file 1000G/merge18 \
 	--merge 1000G/ALL.chr20.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
@@ -155,7 +155,7 @@ plink \
 	--out merge20
 
 plink \
-	--file merge20 \
+	--file 1000G/merge20 \
 	--merge 1000G/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 	--recode \
 	--biallelic-only \
