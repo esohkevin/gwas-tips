@@ -1,8 +1,11 @@
+cut -f2 qc-camgwas.bim > qc.snps.ids
+cut -f1 -d',' qc.snps.ids > qc.rs.ids
+paste qc.rs.ids qc.snps.ids > qc-snps.id
 
 for i in 1000G/ALL.chr*.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz; do
 	plink \
 		--vcf ${i} \
-		--extract allMysnps.txt \
+		--extract qc-snps.id \
 		--mind 0.1 \
 		--maf 0.35 \
 		--geno 0.01 \
@@ -179,7 +182,8 @@ plink \
 	--bfile merged-qcdata-1kp3 \
 	--indep-pairwise 50 5 0.2 \
 	--out pruned-merged-set
-done
+
+rm qc.snps.ids qc.rs.ids qc-snps.id
 
 #bcftools concat -Oz 1000G/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 #1000G/ALL.chr2.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
