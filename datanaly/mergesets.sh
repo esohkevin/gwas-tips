@@ -1,11 +1,9 @@
-cut -f2 qc-camgwas.bim > qc.snps.ids
-cut -f1 -d',' qc.snps.ids > qc.rs.ids
-paste qc.rs.ids qc.snps.ids > qc-snps.id
+cut -f2 qc-camgwas.bim > qc.rs.ids
 
 for i in 1000G/ALL.chr*.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz; do
 	plink \
 		--vcf ${i} \
-		--extract qc-snps.id \
+		--extract qc.rs.ids \
 		--mind 0.1 \
 		--maf 0.35 \
 		--geno 0.01 \
