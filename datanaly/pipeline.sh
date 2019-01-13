@@ -12,6 +12,7 @@ mkdir -p images
 plink1.9 \
 	--vcf camgwas_merge.vcf.gz \
 	--recode oxford \
+	--keep-allele-order \
 	--allow-no-sex \
 	--double-id \
 	--out raw-camgwas
@@ -34,6 +35,7 @@ plink1.9 \
 	--make-bed \
 	--exclude dups.dupvar \
 	--split-x b37 \
+	--keep-allele-order \
 	--allow-no-sex \
 	--out raw-camGwas
 cat raw-camGwas.log >> all.log
@@ -47,6 +49,7 @@ plink1.9 \
         --update-name allMysnps.txt 1 2 \
         --allow-no-sex \
         --make-bed \
+	--keep-allele-order \
         --out raw-camgwas
 cat raw-camgwas.log >> all.log
 
@@ -183,6 +186,8 @@ plink1.9 \
 	--hwe 1e-6 \
 	--geno 0.04 \
 	--make-bed \
+	--biallelic-only \
+	--keep-allele-order \
 	--merge-x \
 	--out qc-camgwas
 cat qc-camgwas.log >> all.log
