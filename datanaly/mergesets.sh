@@ -163,6 +163,12 @@ plink \
 cp 1000G/merged1kp3.* .
 
 plink \
+	--file merged1kp3 \
+	--thin-indiv-count 780 \
+	--recode \
+	--out thinned-merged1kp3
+
+plink \
 	--bfile qc-camgwas \
 	--recode \
 	--autosome \
@@ -171,10 +177,10 @@ plink \
 
 plink \
 	--file qc-camgwas \
-	--merge merged1kp3 \
+	--merge thinned-merged1kp3 \
 	--make-bed \	
 	--allow-no-sex \
-	--out merged-qcdata-1kp3
+	--out popstruct
 
 plink \
 	--bfile merged-qcdata-1kp3 \
