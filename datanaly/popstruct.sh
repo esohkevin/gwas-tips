@@ -176,7 +176,7 @@ plink \
 	--biallelic-only \
 	--out 1kGp3
 
-cut -f2 1kGp3.map > thinned.rs.ids
+cut -f2 1kGp3.bim > thinned.rs.ids
 
 plink \
 	--bfile qc-camgwas \
