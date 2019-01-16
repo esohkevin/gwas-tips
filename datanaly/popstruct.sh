@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+#mv 1000G/merged1kp3 .
 plink \
 	--bfile merged1kp3 \
 	--thin-indiv-count 360 \
 	--autosome \
+	--make-bed \
 	--exclude-snp rs16959560 \
 	--keep-allele-order \
 	--biallelic-only \
