@@ -239,7 +239,7 @@ plink1.9 \
 	--out autopseudo
 cat autopseudo.log >> all.log
 
-### Association tests (all chromosomes) including covariats to account for population structure
+### Association tests including covariats to account for population structure
 # With PC1 and PC2
 plink \
 	--bfile qc-camgwas \
