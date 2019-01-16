@@ -1,4 +1,5 @@
 #!/usr/bin/env R
+
 ### MDS plot of case-control data and 360 randomly selected individuals from the 1KGP3 ###
 # Load the mds data
 pca=read.table("mds-data.mds", header=T, as.is=T)
@@ -8,7 +9,7 @@ pcastat=merge(pca, status, by.x="IID", all.x=T)
 ### Read in data for pop structure
 pca2=read.table("ps-data.mds", header=T, as.is=T)
 pcastat2=merge(pca2, status, by.x="IID", all.x=T)
-View(pcastat2)
+#View(pcastat2)
 
 # Plot and produce and image of the mds plot
 png("mds-plot.png", res=1200, height=6, width=6, units="in")
@@ -91,12 +92,12 @@ legend(x=c(-0.09,0.20),y=c(-0.1555,-0.20),
 dev.off()
 
 # Identify the few case-control points that seem to be outliers
-identify(pcastat[,4], pcastat[,5], labels=pcastat[,2])
+#identify(pcastat[,4], pcastat[,5], labels=pcastat[,2])
 
 # Extract the individuals from the mds data
 # NB: After exluding these indivuals, association test did not improve. Therefore they were not actually outliers
-outliers=c(pcastat[219,1], pcastat[875,1], pcastat[884,1], pcastat[1256,1])
-write.table(outliers, file="sample.exclusions", col.names = F, row.names = F, quote = F, sep = "\n")
+#outliers=c(pcastat[219,1], pcastat[875,1], pcastat[884,1], pcastat[1256,1])
+#write.table(outliers, file="sample.exclusions", col.names = F, row.names = F, quote = F, sep = "\n")
 
 #png("mds-plot.png", res=1200, height=5, width=5, units="in")
 #par(xpd = T, mar = par()$mar + c(0,0,0,7))
@@ -110,7 +111,7 @@ write.table(outliers, file="sample.exclusions", col.names = F, row.names = F, qu
 #}
 #legend(0.30,0.00, c("CEU", "YRI", "CAJ", "CASECON"), pch = 19, col = c(2, 3, 4, 1))
 #par(mar=c(5, 4, 4, 2) + 0.1)
-dev.off()
+#dev.off()
 
 ### Population structure plot for case-control data loaded above as ps2data ###
 png("ps-plots.png", res=1200, height=6, width=6, units="in")
