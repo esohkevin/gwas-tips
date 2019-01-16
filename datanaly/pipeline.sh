@@ -250,7 +250,7 @@ R CMD BATCH assocplot.R
 # With PC1 and PC2
 plink \
 	--bfile qc-camgwas \
-	--covar ps2data.mds \
+	--covar ps-data.mds \
 	--covar-name C1 C2 \
 	--allow-no-sex \
 	--hide-covar \
@@ -260,7 +260,7 @@ plink \
 # With PC1, PC5 and PC9 as reported by glm to associate significantly with disease
 plink \
         --bfile qc-camgwas \
-        --covar ps2data.mds \
+        --covar ps-data.mds \
         --covar-name C1 C5 C9 \
         --allow-no-sex \
         --hide-covar \
@@ -270,7 +270,7 @@ plink \
 # With all PCs
 plink \
         --bfile qc-camgwas \
-        --covar ps2data.mds \
+        --covar ps-data.mds \
         --covar-name C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 \
         --allow-no-sex \
         --hide-covar \

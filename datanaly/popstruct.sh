@@ -62,13 +62,13 @@ sed 's/ /_/g' igsr_samples.tsv > igsr_phase3.samples
 # Extract ids of the 360 randomly generated phase 3 samples
 cut -f1 -d' ' 1kGp3.fam > 3601kGp3.ids
 
-# Now obtain the ids and their corresponding populations in the igsr_phase3.samples bfile
+# Now obtain the ids and their corresponding populations in the igsr_phase3.samples file
 echo "IID Status" > merge.txt
 grep -f 3601kGp3.ids igsr_phase3.samples | cut -f1,4 >> merge.txt
 
-# Also obtain the ids of the remaining dataset in psdata.fam and corresponding status in the large sample bfile
-cut -f1 -d' ' psdata.fam > psdata.ids
-grep -f psdata.ids tmp/Cameroon_GWAS-2.5M_b37_release.sample | cut -f1,9 -d' ' >> merge.txt
+# Also obtain the ids of the remaining dataset in qc-data.fam and corresponding status in the large sample bfile
+cut -f1 -d' ' qc-data.fam > qc-data.ids
+grep -f qc-data.ids tmp/Cameroon_GWAS-2.5M_b37_release.sample | cut -f1,9 -d' ' >> merge.txt
 
 # Now Compute 10 axes of genetic variation to determine pop structure
 plink \
