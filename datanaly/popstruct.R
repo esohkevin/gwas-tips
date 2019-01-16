@@ -1,12 +1,12 @@
 #!/usr/bin/env R
 ### MDS plot of case-control data and 360 randomly selected individuals from the 1KGP3 ###
-# Load the data
-pca=read.table("merge.mds", header=T, as.is=T)
+# Load the mds data
+pca=read.table("mds-data.mds", header=T, as.is=T)
 status=read.table("merge.txt", header=T, as.is=T)
 pcastat=merge(pca, status, by.x="IID", all.x=T)
 
 ### Read in data for pop structure
-pca2=read.table("ps2data.mds", header=T, as.is=T)
+pca2=read.table("ps-data.mds", header=T, as.is=T)
 pcastat2=merge(pca2, status, by.x="IID", all.x=T)
 View(pcastat2)
 

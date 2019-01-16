@@ -179,10 +179,10 @@ plink \
 	--extract thinned.rs.ids \
 	--autosome \
 	--allow-no-sex \
-	--out psdata
+	--out qc-data
 
 plink \
-	--bfile psdata \
+	--bfile qc-data \
 	--bmerge 1kGp3 \
 	--make-bed \
 	--autosome \
@@ -209,7 +209,7 @@ plink \
 	--bfile merge \
 	--read-genome merge.genome \
 	--cluster --mds-plot 2 \
-	--out merge
+	--out mds-data
 
 # Retrieve the 1000Genome Phase sample bfile from the website by visiting
 # http://www.internationalgenome.org/data-portal/sample
@@ -234,21 +234,21 @@ plink \
 	--bfile qc-camgwas \
 	--autosome \
 	--indep-pairwise 50 5 0.2 \
-	--out ps2data
+	--out qc-data
 
 plink \
 	--bfile qc-camgwas \
 	--autosome \
-	--extract ps2data.prune.in \
+	--extract qc-data.prune.in \
 	--genome \
-	--out ps2data
+	--out qc-data
 
 plink \
 	--bfile qc-camgwas \
-	--read-genome ps2data.genome \
+	--read-genome qc-data.genome \
 	--cluster \
 	--mds-plot 10 \
-	--out ps2data
+	--out ps-data
 
 ##############################################################################################
 #					Generate Plots in R				     #
