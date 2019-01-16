@@ -229,6 +229,27 @@ grep -f 3601kGp3.ids igsr_phase3.samples | cut -f1,4 >> merge.txt
 cut -f1 -d' ' psdata.fam > psdata.ids
 grep -f psdata.ids tmp/Cameroon_GWAS-2.5M_b37_release.sample | cut -f1,9 -d' ' >> merge.txt
 
+# Now Compute 10 axes of genetic variation to determine pop structure
+plink \
+	--bfile qc-camgwas \
+	--autosome \
+	--indep-pairwise 50 5 0.2 \
+	--out ps2data
+
+plink \
+	--bfile qc-camgwas \
+	--autosome \
+	--extract ps2data.prune.in \
+	--genome \
+	--out ps2data
+
+plink \
+	--bfile qc-camgwas \
+	--read-genome ps2data.genome \
+	--cluster \
+	--mds-plot 10 \
+	--out ps2data
+
 #bcftools concat -Oz 1000G/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 #1000G/ALL.chr2.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 #1000G/ALL.chr3.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
