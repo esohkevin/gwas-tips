@@ -280,4 +280,5 @@ plink \
 #done
 
 mv *.png images/
+rm -r raw-camGwas.*
 #}
