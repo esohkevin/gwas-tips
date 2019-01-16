@@ -153,7 +153,7 @@ for(i in 1:nrow(pcastat2)){
   if(pcastat2[i,14]=='CONTROL') points(pcastat2[i,12], pcastat2[i,13], col=4, pch=19)
 }
 
-plot(x,y, legend("center", c("CASE","CONTROL"), pch = 19, col = c(2,4), 
+plot(x=c(0,1),y=c(0,1), legend("center", c("CASE","CONTROL"), pch = 19, col = c(2,4), 
        horiz=T, bty="n"))
 par(mar=c(5, 4, 4, 2) + 0.1)
 dev.off()

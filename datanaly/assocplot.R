@@ -108,9 +108,14 @@ manhattan(psassoc2, chr = "CHR", bp = "BP", p = "P", col = c("gray10", "gray60")
           annotatePval = NULL, annotateTop = T)
 dev.off()
 
-# Now produce Q-Q plots for associations with covariats
+
+# Plot a Q-Q plot for the association analysis
 png("qq_plots.png", res=1200, height=10, width=10, units="in")
-par(mfrow=c(2,2))
+par(mfrow=c(4,2))
+qq(assoc$P, main="Q-Q plot after QC")
+qq(assoc1$P, main="Q-Q plot after QC")
+qq(assoc2$P, main="Q-Q plot after QC")
+qq(assoc3$P, main="Q-Q plot after QC")
 qq(psassoc$P, main="Q-Q plot after QC")
 qq(psassoc1$P, main="Q-Q plot after QC")
 qq(psassoc2$P, main="Q-Q plot after QC")
