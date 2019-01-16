@@ -250,6 +250,12 @@ plink \
 	--mds-plot 10 \
 	--out ps2data
 
+##############################################################################################
+#					Generate Plots in R				     #
+##############################################################################################
+R CMD BATCH popstruct.R
+
+
 #bcftools concat -Oz 1000G/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 #1000G/ALL.chr2.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
 #1000G/ALL.chr3.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
