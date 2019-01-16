@@ -15,6 +15,7 @@ plink1.9 \
 	--keep-allele-order \
 	--allow-no-sex \
 	--double-id \
+	--biallelic-only \
 	--out raw-camgwas
 cat raw-camgwas.log > all.log
 cp samples/raw-camgwas.sample .
