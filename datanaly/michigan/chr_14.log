@@ -1,0 +1,10 @@
+[attempt_201901070713_8378_m_000000_0] INFO  Imputation for chunk chunk_14_0080000001_0100000000 successful.
+[attempt_201901070713_8378_m_000000_0] INFO    chunk_14_0080000001_0100000000 Snps in info chunk: 357371
+[attempt_201901070713_8378_m_000001_0] INFO  Imputation for chunk chunk_14_0060000001_0080000000 successful.
+[attempt_201901070713_8378_m_000001_0] INFO    chunk_14_0060000001_0080000000 Snps in info chunk: 330474
+[attempt_201901070713_8378_m_000002_0] INFO  Imputation for chunk chunk_14_0020000001_0040000000 successful.
+[attempt_201901070713_8378_m_000002_0] INFO    chunk_14_0020000001_0040000000 Snps in info chunk: 342112
+[attempt_201901070713_8378_m_000003_0] INFO  Imputation for chunk chunk_14_0040000001_0060000000 successful.
+[attempt_201901070713_8378_m_000003_0] INFO    chunk_14_0040000001_0060000000 Snps in info chunk: 350451
+[attempt_201901070713_8378_m_000004_0] INFO  Imputation for chunk chunk_14_0100000001_0120000000 successful.
+[attempt_201901070713_8378_m_000004_0] INFO    chunk_14_0100000001_0120000000 Snps in info chunk: 145270

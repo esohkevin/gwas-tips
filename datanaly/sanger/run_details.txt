@@ -1,0 +1,25 @@
+Run ID: 19da0d307bb68e02872bb15688b40d0b 
+Label: Imputation-against-the-African-Genome-Resources 
+Status: new 
+Panel: African Genome Resources 
+Pipeline: SHAPEIT+PBWT
+
+Sanger Path: 19da0d307bb68e02872bb15688b40d0b
+
+-- New Job --
+Run ID: 71b37bbd4ee72456dc73a7371a2f8b83 
+Label: Imputation-against-the-African-Genome-Resources 
+Status: new 
+Panel: African Genome Resources 
+Pipeline: SHAPEIT+PBWT
+
+Sanger Path: /71b37bbd4ee72456dc73a7371a2f8b83/
+
+-- New Job --
+Run ID: 0be80d458bcf33a636b831c74743acab 
+Label: Imputation-against-the-African-Genome-Resources 
+Status: new 
+Panel: African Genome Resources 
+Pipeline: SHAPEIT+PBWT
+
+
