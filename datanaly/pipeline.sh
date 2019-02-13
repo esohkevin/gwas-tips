@@ -6,7 +6,7 @@
 #			from: 
 
 #runplink1.9() {
-mkdir -p images
+mkdir -p ../images
 #read -p 'Please provide your genotype vcf file: ' vcf
 
 plink1.9 \
@@ -15,10 +15,9 @@ plink1.9 \
 	--keep-allele-order \
 	--allow-no-sex \
 	--double-id \
-	--biallelic-only \
 	--out raw-camgwas
 cat raw-camgwas.log > all.log
-cp samples/raw-camgwas.sample .
+cp ../samples/raw-camgwas.sample .
 
 #	Sample: 	raw-camgwas.sample
 
@@ -86,9 +85,11 @@ plink1.9 \
 	--out raw-camgwas
 cat raw-camgwas.log >> all.log
 
+echo """
 #########################################################################
 #	    Perform per individual missing rate QC in R			#
 #########################################################################
+"""
 echo -e "\nNow generating plots for per individual missingness in R. Please wait..."
 
 R CMD BATCH indmissing.R
@@ -122,9 +123,11 @@ plink1.9 \
 	--out caseconpruned
 cat caseconpruned.log >> all.log
 
+echo """
 #########################################################################
 #              Perform IBD analysis (relatedness) in R                  #
 #########################################################################
+"""
 echo -e "\nNow generating plots for IBD analysis in R. Please wait..."
 
 R CMD BATCH ibdana.R
@@ -171,9 +174,11 @@ plink1.9 \
 	--out ind-qc-camgwas
 cat ind-qc-camgwas.log >> all.log
 
+echo """
 #########################################################################
 #                        Perform per SNP QC in R                        #
 #########################################################################
+"""
 echo -e "\nNow generating plots for per SNP QC in R. Please wait..."
 
 R CMD BATCH snpmissing.R
@@ -192,6 +197,71 @@ plink1.9 \
 	--merge-x \
 	--out qc-camgwas
 cat qc-camgwas.log >> all.log
+
+echo """
+#########################################################################
+#                          ChrX Quality Control                         #
+#########################################################################
+"""
+echo -e "\nNow generating plots for per SNP QC in R. Please wait..."
+
+# Extract only autosomes for subsequently merging with QCed chrX
+plink \
+	--bfile qc-camgwas \
+	--allow-no-sex \
+	--make-bed \
+	--autosome \
+	--out qc-camgwas-autosome
+cat qc-camgwas-autosome.log >> all.log
+
+# Extract only chrX for QC
+plink \
+	--bfile qc-camgwas \
+	--allow-no-sex \
+	--make-bed \
+	--chr X \
+	--out qc-camgwas-chrX \
+	--set-hh-missing
+cat qc-camgwas-chrX.log >> all.log
+
+# Compute differential missingness
+plink1.9 \
+        --bfile qc-camgwas-chrX \
+        --allow-no-sex \
+        --set-hh-missing \
+        --test-missing \
+        --out qc-camgwas-chrX
+cat qc-camgwas-chrX.log >> all.log
+
+echo """
+#########################################################################
+#                          chrX per SNP QC in R                         #
+#########################################################################
+"""
+echo -e "\nPerforming ChrX per SNP QC in R. Please wait..."
+
+R CMD BATCH xsnpmissing.R
+
+# Now remove SNPs that failed chrX QC
+plink1.9 \
+        --bfile qc-camgwas-chrX \
+        --exclude fail-Xdiffmiss.qc \
+        --allow-no-sex \
+        --maf 0.01 \
+        --hwe 1e-6 \
+        --geno 0.04 \
+        --make-bed \
+        --biallelic-only \
+        --keep-allele-order \
+	--out qc-camgwas-chr23 
+
+# Merge autosome and chrX data sets again
+plink \
+	--bfile qc-camgwas-autosome \
+	--allow-no-sex \
+	--bmerge qc-camgwas-chr23 \
+	--set-hh-missing \
+	--out qc-camgwas
 
 # Run Association test with adjustment to assess the genomic control inflation factor (lambda)
 plink1.9 \
@@ -239,47 +309,11 @@ plink1.9 \
 	--set-hh-missing \
 	--out autopseudo
 cat autopseudo.log >> all.log
-
-### Association tests including covariats to account for population structure
-# With PC1 and PC2
-plink \
-	--bfile qc-camgwas \
-	--covar ps-data.mds \
-	--covar-name C1 C2 \
-	--autosome \
-	--allow-no-sex \
-	--hide-covar \
-	--logistic \
-	--out ps-qc-camgwas
-cat ps-qc-camgwas.log >> all.log
-
-# With PC1, PC5 and PC9 as reported by glm to associate significantly with disease
-plink \
-        --bfile qc-camgwas \
-        --covar ps-data.mds \
-        --covar-name C1 C5 C9 \
-        --allow-no-sex \
-	--autosome \
-        --hide-covar \
-        --logistic \
-        --out ps1-qc-camgwas
-cat ps1-qc-camgwas.log >> all.log
-
-# With all PCs
-plink \
-        --bfile qc-camgwas \
-        --covar ps-data.mds \
-        --covar-name C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 \
-        --allow-no-sex \
-	--autosome \
-        --hide-covar \
-        --logistic \
-        --out ps2-qc-camgwas
-cat ps2-qc-camgwas.log >> all.log
-
+echo """
 #########################################################################
 #                        Plot Association in R                          #
 #########################################################################
+"""
 echo -e "\nNow generating association plots in R. Please wait..."
 
 R CMD BATCH assocplot.R
@@ -287,6 +321,14 @@ R CMD BATCH assocplot.R
 
 #done
 
-mv *.png images/
+mv *.png ../images/
 rm -r raw-camGwas.*
+
+echo """
+#########################################################################
+#                     Run Imputation Prep Script                        #
+#########################################################################
+"""
+./imputePrep.sh
+
 #}
