@@ -24,4 +24,3 @@ diffmiss=read.table("ind-qc-camgwas.missing", header = T, as.is = T)
 diffmiss=diffmiss[diffmiss$P<0.000001, ]
 write.table(diffmiss$SNP, file = "fail-diffmiss.qc", row.names = F, col.names = F, quote = F)
 
-
