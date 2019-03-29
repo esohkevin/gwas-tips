@@ -35,7 +35,7 @@ intervention strategies.
 
 ### Sample (per individual) QC
  - Identification of individuals with discordant sex information.
- - Identification of individuals with discordant sex information.
+ - Identification of individuals with high missing values or outlying heterozygosities.
  - Identification of duplicate or related individuals or individuals of divergent ancestry
  - Tools: QCTOOL, PLINK1.9, R
 
