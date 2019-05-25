@@ -44,7 +44,6 @@ _book
 fail*
 .RData
 .Rhistory
-*.R
 
 # Exceptions
 !ibdana.R

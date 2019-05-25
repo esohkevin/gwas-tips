@@ -1,0 +1,6 @@
+[attempt_201901070713_8385_m_000000_0] INFO  Imputation for chunk chunk_21_0020000001_0040000000 successful.
+[attempt_201901070713_8385_m_000000_0] INFO    chunk_21_0020000001_0040000000 Snps in info chunk: 365936
+[attempt_201901070713_8385_m_000001_0] INFO  Imputation for chunk chunk_21_0040000001_0060000000 successful.
+[attempt_201901070713_8385_m_000001_0] INFO    chunk_21_0040000001_0060000000 Snps in info chunk: 166252
+[attempt_201901070713_8385_m_000002_0] INFO  Imputation for chunk chunk_21_0000000001_0020000000 successful.
+[attempt_201901070713_8385_m_000002_0] INFO    chunk_21_0000000001_0020000000 Snps in info chunk: 121603
