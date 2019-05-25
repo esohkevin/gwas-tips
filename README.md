@@ -26,12 +26,12 @@ severe malaria in the study participants. This would be particularly important i
 into host-parasite interaction which will in turn be crucial in informing development of novel 
 intervention strategies.
 
-## Pipeline
+## Pipeline (Workflow)
 
 ### Pre-QC Association analysis
- - Model: Logistic (beta) at 95% confidence interval, 1df Chi square allelic test (adjusted to assess the genomic control inflation factor - λ).
- - Mode of inheritance (MOI): Additive, Allelic
- - Tools: PLINK1.9, R
+ - Model: Logistic (95% confidence interval), 1df Chi square allelic test (adjusted to assess the genomic control inflation factor - λ).
+ - Mode of inheritance (MOI): Additive, Recessive, HetHom, Allelic and Genotypic,
+ - Tools: PLINK1.9, SNPTEST, R
 
 ### Sample (per individual) QC
  - Identification of individuals with discordant sex information.
@@ -50,16 +50,16 @@ intervention strategies.
  - Multidimensional scaling (eliminate population outliers)
  - Principal component analysis with 10 axes of genetic variation (principal components)
  - Fst and Haplotype based fine structure analysis
- - Tools: fsStructure, ChromoPainter, GLOBETROTTER, R
+ - Tools: Plink1.9, EIGENSOFT, fsStructure, ChromoPainter, GLOBETROTTER, R
 
 ### Haplotype Estimation (phasing)
- - SHAPEIT2
+ - SHAPEIT2, Eagle2
 
 ### Genotype Imputation
- - IMPUTE2
+ - IMPUTE2, PBWT, MINIMACH
 
 ### Post-Imputation Association analyses
- - Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
+ - Models: Logistic regression, Linear mixed models (LMM)
  - Modes of inheritance: dominant, recessive, heterozygous, additive, allelic
  - Tools: PLINK1.9, SNPTEST2, R
 
@@ -68,7 +68,7 @@ intervention strategies.
  - Imputation with IMPUTE2
 
 ### Association analysis
- - Models: Logistic regression, Linear mixed models (LMM),  1df Chi square
+ - Models: Logistic regression, Linear mixed models (LMM)
  - Modes of inheritance (MOI): dominant, recessive, heterozygous, additive, allelic
  - Tools: PLINK1.9, SNPTEST2, R
 
