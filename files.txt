@@ -1,6 +1,0 @@
-files.txt
-gitadd.sh
-michigan/*
-phase/*
-popstruct/*
-
