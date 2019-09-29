@@ -1,10 +1,5 @@
 #!/usr/bin/env R
 
-# Check installation of qqman and load it if installed
-if (!requireNamespace("qqman"))
-        install.packages("qqman", repos="http://cloud.r-project.org", ask = F)
-library(qqman)
-
 # Extract palindromic SNPs
 bim = read.table("qc-camgwas.bim", header=F, as.is=T)
 # Get indices of A/T and G/C SNPs

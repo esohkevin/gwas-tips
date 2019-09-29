@@ -21,10 +21,10 @@ mishet=data.frame(FID=het$FID, IID=het$IID, het.rate=(het$N.NM. - het$O.HOM.)/he
 #hetlower=meanhet - sdhet*3
 
 # Plot the proportion of missing genotypes and the heterozygosity rate
-png(filename = "mishet.png", width = 500, height = 480, units = "px", pointsize = 12,
+png(filename = "mishet.png", width = 500, height = 480, units = "px", pointsize = 14,
     bg = "white",  res = NA)
 par(mfrow=c(1,1))
-plot(mishet$het.rate, mishet$mis.rate, xlab = "Heterozygous rate", ylab = "Proportion of missing genotype", pch=20)
+plot(mishet$het.rate, mishet$mis.rate, xlab = "Heterozygous rate", ylab = "Proportion of missing genotype", main="Individual Missingness", pch=20)
 abline(v=c(0.180,0.230), h=0.1, lty=2)
 dev.off()
 

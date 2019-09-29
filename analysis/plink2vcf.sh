@@ -16,13 +16,13 @@ bgzip -f qc-camgwas-updated.vcf
 
 
 #########################################################################
-for i in $(seq 1 23); do
-vcfCooker \
-	--in-bfile ${prefix}${i} \
-	--ref human_g1k_v37.fasta \
-	--out ${prefix}${i}.vcf \
-	--write-vcf
-bgzip -f ${prefix}${i}.vcf
-done
-cp qc-camgwas-updated-chr23.vcf.gz qc-camgwas-updated-chrX.vcf.gz
+#for i in $(seq 1 23); do
+#vcfCooker \
+#	--in-bfile ${prefix}${i} \
+#	--ref human_g1k_v37.fasta \
+#	--out ${prefix}${i}.vcf \
+#	--write-vcf
+#bgzip -f ${prefix}${i}.vcf
+#done
+#cp qc-camgwas-updated-chr23.vcf.gz qc-camgwas-updated-chrX.vcf.gz
 
