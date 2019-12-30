@@ -11,6 +11,7 @@ do
 	--bfile ../qc-camgwas \
 	--chr ${chr} \
 	--allow-no-sex \
+	--keep-allele-order \
 	--make-bed \
 	--out qc-camgwas.chr${chr} ;
 	cat qc-camgwas.chr${chr}.log >> log.file

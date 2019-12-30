@@ -2,20 +2,19 @@
 
 ######################################### SNP QC ############################################
 lmiss=read.table("ind-qc-camgwas.lmiss", header = T, as.is = T)
-png(filename = "snp_qc_missing.png", width = 520, height = 520, units = "px", pointsize = 12,
+png(filename = "snp_qc_missing.png", width = 500, height = 500, units = "px", pointsize = 16,
     bg = "white",  res = NA)
 par(mfrow=c(1,1))
-hist(log10(lmiss$F_MISS), ylab = "Number of SNPs", xlab = "Fraction of missing genotypes", 
-	main = "Fraction of missing data")
+hist(log10(lmiss$F_MISS), ylab = "Number of SNPs", xlab = "log10(lmiss$F_MISS)", main="")
 abline(v=log10(0.04), lty=2) 			# placing a line at 4% missing data point
 dev.off()
 
 # Examining minor allele frequency
 freq=read.table("ind-qc-camgwas.frq", header = T, as.is = T)
-png(filename = "snp_qc_maf.png", width = 520, height = 520, units = "px", pointsize = 12,
+png(filename = "snp_qc_maf.png", width = 500, height = 500, units = "px", pointsize = 16,
     bg = "white",  res = NA)
 par(mfrow=c(1,1))
-hist(freq$MAF, ylab = "Number of SNPs", xlab = "MAF", main = "Minor Allele Frequencies")
+hist(freq$MAF, ylab = "Number of SNPs", xlab = "MAF", main="")
 # Include lines for 1% (0.01) and 5% (0.05) MAFs 
 abline(v=0.01, lty=2, col="red")
 #abline(v=0.05, lty=2, col="green")
