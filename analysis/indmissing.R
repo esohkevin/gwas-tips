@@ -1,17 +1,22 @@
 #!/usr/bin/Rscript
 
+args <- commandArgs(TRUE)
+he <- args[1]
+imis <- args[2]
+oput <- paste0("mishet_", gsub(".het", ".png", args[1]))
+
 ############### Extract IDs of individuals that failed sex check from the .sexcheck file ##############
-sexcheck=read.table("fail-checksex.qc", header = F, as.is = T)
-write.table(sexcheck[,1:2], file = "fail-checksex.qc", col.names = F, row.names = F, quote = F, sep = "\t")
+#sexcheck=read.table("fail-checksex.qc", header = F, as.is = T)
+#write.table(sexcheck[,1:2], file = "fail-checksex.qc", col.names = F, row.names = F, quote = F, sep = "\t")
 
 ############### PER INDIVIDUAL QC ######################
 ### Plot Heterozygosity vs Missingness
-het=read.table("raw-camgwas.het", header = T, as.is = T)
-mis=read.table("raw-camgwas.imiss", header = T, as.is = T)
+het=read.table(he, header = T, as.is = T)
+mis=read.table(imis, header = T, as.is = T)
 
 # save the file reformatted
-write.table(het, file = "raw-camgwas.het", col.names = T, row.names = F, quote = F, sep = "\t")
-write.table(mis, file = "raw-camgwas.imiss", col.names = T, row.names = F, quote = F, sep = "\t")
+write.table(het, file = he, col.names = T, row.names = F, quote = F, sep = "\t")
+write.table(mis, file = imis, col.names = T, row.names = F, quote = F, sep = "\t")
 
 # Calculate the observed heterozygosity rate per individual by (N(NM) - O(HOM)/N(NM))
 mishet=data.frame(FID=het$FID, IID=het$IID, het.rate=(het$N.NM. - het$O.HOM.)/het$N.NM., mis.rate=mis$F_MISS)
@@ -21,7 +26,7 @@ mishet=data.frame(FID=het$FID, IID=het$IID, het.rate=(het$N.NM. - het$O.HOM.)/he
 #hetlower=meanhet - sdhet*3
 
 # Plot the proportion of missing genotypes and the heterozygosity rate
-png(filename = "mishet.png", width = 500, height = 480, units = "px", pointsize = 14,
+png(filename = oput, width = 500, height = 480, units = "px", pointsize = 14,
     bg = "white",  res = NA)
 par(mfrow=c(1,1))
 plot(mishet$het.rate, mishet$mis.rate, xlab = "Heterozygous rate", ylab = "Proportion of missing genotype", main="Individual Missingness", pch=20)

@@ -32,7 +32,7 @@ if [[ $data == "sub" ]]; then
           	--double-id
           
           sed '1d' chr${3}${6}${7}.legend | awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${6}${7}.map
-          sed 's/0/2/g' chr${3}${6}${7}.haps > chr${3}${6}${7}.hap
+          mv chr${3}${6}${7}.haps > chr${3}${6}${7}.hap
        
        elif [[ "$param" == "2" && $# != 5 ]]; then
           echo """
@@ -51,7 +51,7 @@ if [[ $data == "sub" ]]; then
             --double-id
          
           sed '1d' chr${3}${4}.legend | awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${4}.map
-          sed 's/0/2/g' chr${3}${4}.haps > chr${3}${4}.hap
+          mv chr${3}${4}.haps > chr${3}${4}.hap
           
        elif [[ "$param" == "3" && $# != 6 ]]; then
             echo """
@@ -86,7 +86,7 @@ if [[ $data == "sub" ]]; then
 
               sed '1d' ${3}${chr}.legend | \
                       awk -f awkProgFile.txt > ${3}${chr}.map
-              sed 's/0/2/g' ${3}${chr}.haps > ${3}${chr}.hap
+              mv ${3}${chr}.haps > ${3}${chr}.hap
             done
 
 	       for chr in `(seq 1 $4)`; do
@@ -139,7 +139,7 @@ elif [[ $data == "all" ]]; then
                 --double-id
  
           sed '1d' chr${3}${6}${7}.legend | awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${6}${7}.map
-          sed 's/0/2/g' chr${3}${6}${7}.haps > chr${3}${6}${7}.hap
+          mv chr${3}${6}${7}.haps > chr${3}${6}${7}.hap
  
        elif [[ "$param" == "2" && $# != 5 ]]; then
           echo """
@@ -157,7 +157,7 @@ elif [[ $data == "all" ]]; then
             --double-id
  
           sed '1d' chr${3}${4}.legend | awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${4}.map
-          sed 's/0/2/g' chr${3}${4}.haps > chr${3}${4}.hap
+          mv chr${3}${4}.haps > chr${3}${4}.hap
  
  
        elif [[ "$param" == "3" && $# != 5 ]]; then
@@ -170,7 +170,7 @@ elif [[ $data == "all" ]]; then
           """
        elif [[ "$param" == "3" && $# == 5 ]]; then
 
-       for chr in `(seq 1 $4)`; do
+       for chr in $(seq 1 $4); do
 	# Entire dataset with more than one chromosomes
           plink2 \
             --export hapslegend \
@@ -188,7 +188,7 @@ elif [[ $data == "all" ]]; then
 
           sed '1d' ${3}${chr}.legend | \
 		  awk -f awkProgFile.txt > ${3}${chr}.map
-          sed 's/0/2/g' ${3}${chr}.haps > ${3}${chr}.hap
+          mv ${3}${chr}.haps > ${3}${chr}.hap
 
        done
 

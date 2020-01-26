@@ -1,14 +1,14 @@
 #!/bin/bash
 
-data_path="$HOME/GWAS/Git/GWAS/analysis"
+data_path="../analysis/"
 
 for chr in {1..22}; do
   eagle \
-    --bfile=${data_path}/qc-camgwas-updated-autosome \
+    --bfile=${data_path}qc-camgwas-updated \
     --geneticMapFile=tables/genetic_map_hg19_withX.txt.gz \
     --chrom=${chr} \
     --outPrefix=chr${chr}-phased \
-    --numThreads=15 \
+    --numThreads=6 \
     --Kpbwt=10000 \
     2>&1 | tee chr${chr}-plink_files.log
 done

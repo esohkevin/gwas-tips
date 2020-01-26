@@ -103,7 +103,7 @@ echo -e """\e[38;5;40m
 	"""
 echo -e "\n\e[38;5;40mNow generating plots for per individual missingness in R. Please wait...\e[0m"
 
-R CMD BATCH indmissing.R
+Rscript indmissing.R raw-camgwas.het raw-camgwas.imiss
 
 #-------- Extract a subset of frequent individuals to produce an IBD 
 #-------- report to check duplicate or related individuals baseDird on autosomes
@@ -189,7 +189,7 @@ echo -e """\e[38;5;40m
 	"""
 echo -e "\n\e[38;5;40mNow generating plots for per SNP QC in R. Please wait...\e[0m"
 
-R CMD BATCH snpmissing.R
+Rscript snpmissing.R ind-qc-camgwas.lmiss ind-qc-camgwas.frq ind-qc-camgwas.missing
 
 #-------- Remove SNPs that failed per marker QC
 plink1.9 \

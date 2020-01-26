@@ -64,7 +64,8 @@ build.y=function(X,dm) {
 
 #### Tree
 mytree=unroot(read.tree(tree_file))
-mytree=reorder(mytree)
+##mytree=phangorn:::reorderPruning(mytree)
+mytree=reorder(mytree,"postorder")
 
 ### Global tree plot
 png(file=paste(prefix,'_WholeGenomeTree.png',sep=''),width=3.4,height=3.4

@@ -1,0 +1,8 @@
+genotypename:  	../eig/CONVERTF/cam.ancestrymapgeno
+snpname:       	../eig/CONVERTF/cam.snp
+indivname:     	../eig/CONVERTF/cam-cam.ind
+admixpop:      	CAM
+refpops:	LWK;GWD
+raw_outname:	rawLD.txt
+checkmap:	NO
+approx_ld_corr:	NO

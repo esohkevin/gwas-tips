@@ -18,7 +18,7 @@ for (i in f$TajimaD) {
 head(f)
 plot(f$BIN_START, f$TajimaD, pch =20, type = "l", lwd = 0.9)
 lines(p$POS, p$PI)
-abline(v=c(32205174,33273993), lty = 2, )
+abline(v=c(32971959), lty = 2, )
 d <- density(na.omit(f$TajimaD))
 plot(d)
 polygon(d)

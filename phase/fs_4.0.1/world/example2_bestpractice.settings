@@ -1,0 +1,9 @@
+##### Essential quantities
+## Define the data
+
+s1minsnps:5000
+s1indfrac:0.1
+indsperproc:10 # inds processed per file for phase2 (used for phase1 unless we have to process each individual separately for CPU saving via p1minsnps or p1indfrac)
+
+s3iters:1000000 # number of MCMC iterations (burnin + sampling)
+s4iters:10000 # number of Tree iterations

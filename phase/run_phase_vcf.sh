@@ -1,15 +1,16 @@
 #!/bin/bash
 
+
 for chr in {1..22}; do
   eagle \
-    --vcf=qc-camgwas-updated.vcf.gz \
+    --vcf=qc-camgwas-cntr.vcf.gz \
     --geneticMapFile=tables/genetic_map_hg19_withX.txt.gz \
     --chrom=${chr} \
-    --numThreads=15 \
-    --Kpbwt=100000 \
+    --numThreads=6 \
+    --Kpbwt=50000 \
     --vcfOutFormat=z \
-    --outPrefix=Chr${chr}-phased \
-    2>&1 | tee Chr${chr}-phase_vcf.log
+    --outPrefix=cntr${chr}-phased \
+    2>&1 | tee cntr${chr}-phase_vcf.log
 
 done
 ### run eagle without any parameters to list options

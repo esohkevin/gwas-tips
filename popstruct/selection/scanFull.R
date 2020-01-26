@@ -1,6 +1,7 @@
 #!/usr/bin/Rscript
 
-library(rehh)
+require(rehh)
+#vignette(rehh)
 
 ## iHS and cross-Population or whole genome scans
 
@@ -39,6 +40,14 @@ for(i in 1:numchr) {
 }
 
 wg.ihs<-ihh2ihs(wg.res)
+
+# Candidate regions
+cr.cam <- calc_candidate_regions(wg.ihs, 
+                                  threshold=4, 
+                                  pval=T, 
+                                  window_size=1E6, 
+                                  overlap=1E5, 
+                                  min_n_extr_mrk=2)
 
 #--------------------------------------------------------------------------------
 ##              Extract iHS results ommitting missing value rows
@@ -99,22 +108,5 @@ distribplot(IHS, main="iHS", qqplot = F)
 distribplot(IHS, main="iHS", qqplot = T)
 dev.off()
 
-#--------------------------------------------------------------------------------
-##              Produce bifurcation plot for each signal locus
-##             
-##             
-
-# Bifurcation plot
-#for (locus in sigpos) {
-#	bifurc <- paste(args[3],"bif",locus,".png", sep="")
-#	bifAncestMain <- paste(locus,": Ancestral allele", sep="")
-#	bifDerivMain <- paste(locus,": Derived allele", sep="")
-#	png(bifurc, height = 700, width = 640, res = NA, units = "px", type = "cairo")
-#	layout(matrix(1:2,2,1))
-#	bifurcation.diagram(hap, mrk_foc = locus, all_foc = 1, nmrk_l = 10, nmrk_r = 10, refsize = 0.05,
-#			    main = bifAncestMain)
-#	bifurcation.diagram(hap, mrk_foc = locus, all_foc = 2, nmrk_l = 10, nmrk_r = 10, refsize = 0.05,
-#			    main=bifDerivMain)
-#	dev.off()
-#}
-
+# Frequency bin plot
+freqbinplot(wg.ihs)

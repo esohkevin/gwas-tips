@@ -7,12 +7,13 @@ $command = "smartpca.perl";
 $command .= " -i ../CONVERTF/eig-corr-camgwas.eigenstratgeno ";
 $command .= " -a ../CONVERTF/eig-corr-camgwas.snp ";
 $command .= " -b ../CONVERTF/eig-corr-camgwas.ind " ;
-$command .= " -k 30 ";
+$command .= " -k 20 ";
+$command .= " -t 20 ";
 $command .= " -o eig-corr-camgwas.pca ";
 $command .= " -p eig-corr-camgwas.plot ";
 $command .= " -e eig-corr-camgwas.eval ";
 $command .= " -l eig-corr-camgwas-pca.log ";
-$command .= " -m 0 ";
+$command .= " -m 5 ";
 print("$command\n");
 system("$command");
 

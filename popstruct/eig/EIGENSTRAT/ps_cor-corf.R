@@ -1,6 +1,6 @@
 #!/usr/bin/Rscript
 
-setwd("/home/esoh/esohdata/GWAS/popstruct/eig/EIGENSTRAT")
+setwd("/home/esoh/Git/GWAS/popstruct/eig/EIGENSTRAT")
 
 #----Load libraries
 require(colorspace)
@@ -13,8 +13,8 @@ args <- commandArgs(TRUE)
 #----Initialize files
 fa <- "cor.pca.evec"
 fb <- "cor-fst.pca.evec"
-fsa <- "/home/esoh/esohdata/GWAS/phase/fs_4.0.1/project/cameig.csv"
-fsb <- "/home/esoh/esohdata/GWAS/phase/fs_4.0.1/world/afreig.csv"
+fsa <- "/home/esoh/Git/GWAS/phase/fs_4.0.1/project/cameig.csv"
+fsb <- "/home/esoh/Git/GWAS/phase/fs_4.0.1/world/afreig.csv"
 
 #fn <- "cor-fst.pca.evec"
 fa <- args[1]
