@@ -1,0 +1,10 @@
+add.files
+file.txt
+popstruct/extract_1kgp_pops.sh
+popstruct/fst_prep.sh
+popstruct/phasewref-no-parallel.sh
+popstruct/rehhPrep.R
+popstruct/run_ibd.sh
+popstruct/run_wphase_ref.sh
+popstruct/world-pop-gen.sh
+
