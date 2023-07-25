@@ -1,32 +1,4 @@
-# MSc Project
-
-## Genome-wide Screening of Candidate Markers Associated with Severe Malaria in Three Malaria-Endemic Regions of Cameroon
-
-## Introduction
-Severe *Plasmodium falciparum* malaria is a life-threatening disease that accounts for more than 
-90% of malaria deaths world wide. Africans, particular children below the age of 5 are the most 
-vulnerable. With increasing antimalarial and insecticide resistance, and no effective vaccine 
-against all parasite strains, the disease threatens to escalate. An understanding of the mechanisms 
-of disease resistance and susceptibility in humans is crucial to developing new intervention strategies.
-Therefore, we seek to look for genetic variants that have not been discovered by previous 
-studies in 693 case and 778 control participants from three ethnic groups (Bantu, Semi-bantu and Foulbe) 
-and three malaria endemic regions of Cameroon (Center, Littoral and South West regions) that may 
-improve understanding of the malaria disease process. Here, we utilize a genome-wide association 
-study (GWAS) approach whereby 2.3 millions of single nucleotide polymorphisms (SNPs) genotyped in 
-samples from the study participants will be tested for association with severe malaria. A quality 
-control procedure will be applied on the genotype dataset using the QCTOOL2, VCFTOOLS, and PLINK1.9 
-tools where poor quality samples and SNPs will be excluded. Also, a population stratification analysis 
-by multidimensional scaling (MDS) and principal component analysis (PCA) will be performed to identify 
-and eliminate all potential confounders and association testing will be performed using PLINK1.9 and 
-SNPTEST2 tools with Bonferroni correction for multiple testing. Furthermore, haplotype estimation (phasing) 
-and imputation against the 1000 Genomes reference panel (Phase 3) will be performed using SHAPEIT and 
-IMPUTE2 respectively and then association of imputed SNPs will be performed with the aforementioned tools.
-At the end of the study, we expect to find at least a SNP that is significantly associated with 
-severe malaria in the study participants. This would be particularly important in gaining understanding 
-into host-parasite interaction which will in turn be crucial in informing development of novel 
-intervention strategies.
-
-## Pipeline (Workflow)
+# Pipeline (Workflow)
 
 ### Pre-QC Association analysis
  - Model: Logistic (95% confidence interval), 1df Chi square allelic test (adjusted to assess the genomic control inflation factor - λ).
