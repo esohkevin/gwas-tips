@@ -1,8 +1,0 @@
-genotypename:    qc-camgwas.eigenstratgeno
-snpname:         qc-camgwas.snp
-indivname:       qc-camgwas.ind
-outputformat:    PED
-genotypeoutname: qc-camgwas-new.ped
-snpoutname:      qc-camgwas-new.pedsnp
-indivoutname:    qc-camgwas-new.pedind
-#numthreads:      16

@@ -1,7 +1,0 @@
-genotypename:  ../CONVERTF/.eigenstratgeno
-snpname:       ../CONVERTF/.snp
-indivname:     ../CONVERTF/.ind
-pcaname:       .pca
-outputname:    
-numpc:         -o
-qtmode:        NO
