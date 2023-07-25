@@ -1,13 +1,18 @@
 # UNDER DEVELOPMENT
-- I have removed all scripts to redevelop and redeploy this repository as a a one-stop, 
+- I have removed all scripts to redevelop and redeploy this repository as a one-stop, 
 organized, updated, and simple-to-follow GWAS tutorial. 
-- It will contain the tips and 
-tricks that I have accumulated throughout my experience in analyzing highly diverse 
-African populations.
+- It will contain the tips and tricks that I have accumulated throughout my experience 
+in analyzing highly diverse African populations.
 
 
 <p align="center">
+  <br>
+  <br>
+  <br>
   <em>WATCH OUT FOR UPDATES!!!</em>
+  <br>
+  <br>
+  <br>
 </p>
 
 
