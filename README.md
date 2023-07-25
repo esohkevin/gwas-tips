@@ -1,3 +1,16 @@
+# UNDER DEVELOPMENT
+- I have removed all scripts to redevelop and redeploy this repository as a a one-stop, 
+organized, updated, and simple-to-follow GWAS tutorial. 
+- It will contain the tips and 
+tricks that I have accumulated throughout my experience in analyzing highly diverse 
+African populations.
+
+
+<p align="center">
+  <em>WATCH OUT FOR UPDATES!!!</em>
+</p>
+
+
 # Pipeline (Workflow)
 
 ### Pre-QC Association analysis
