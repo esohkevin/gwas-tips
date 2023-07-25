@@ -5,7 +5,7 @@ organized, updated, and simple-to-follow GWAS tutorial.
 in analyzing highly diverse African populations.
 
 
-<p align="center">
+<p align="center" style="color:red">
   <br>
   <br>
   <br>
